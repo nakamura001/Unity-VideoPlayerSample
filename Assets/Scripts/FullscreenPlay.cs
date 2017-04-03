@@ -19,9 +19,10 @@ public class FullscreenPlay : MonoBehaviour {
 		// ※ Main Camera には VideoPlayer コンポーネントを追加しておく
 		GameObject camera = GameObject.Find("Main Camera");
 
-		videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
+		videoPlayer = camera.AddComponent<VideoPlayer>();
 
-		videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.CameraFarPlane;
+		// レンダリング場所はカメラの最前面。動画の手前に3Dオブジェクトなどを表示したい場合は VideoRenderMode.CameraFarPlane を使用
+		videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
 
 		//videoPlayer.targetCameraAlpha = 0.5F; // 動画全体のアルファ値設定
 
